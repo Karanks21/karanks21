@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Graphic Design Class | Karan K S</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0B0B0B;
+    color: #FFFFFF;
+}
+
+/* NAVBAR */
+
+.navbar {
+    width: 100%;
+    padding: 22px 8%;
+
+    background: #0B0B0B;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    border-bottom: 1px solid #2d2612;
+}
+
+.logo {
+    color: #D4AF37;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.back-btn {
+    color: #FFFFFF;
+    text-decoration: none;
+
+    border: 1px solid #D4AF37;
+
+    padding: 10px 20px;
+
+    border-radius: 25px;
+
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: #D4AF37;
+    color: #000000;
+}
+
+
+/* HERO */
+
+.course-hero {
+    min-height: 65vh;
+
+    padding: 90px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.course-content {
+    max-width: 850px;
+}
+
+.small-text {
+    color: #D4AF37;
+
+    font-size: 16px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+.course-hero h1 {
+    color: #D4AF37;
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+.course-hero p {
+    color: #BDBDBD;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+.join-btn {
+    display: inline-block;
+
+    background: #D4AF37;
+
+    color: #000000;
+
+    text-decoration: none;
+
+    padding: 14px 30px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.join-btn:hover {
+    background: #FFFFFF;
+
+    transform: translateY(-3px);
+}
+
+
+/* COURSE INFO */
+
+.course-info-section {
+    padding: 80px 8%;
+
+    background: #111111;
+}
+
+.info-grid {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.info-card {
+    background: #151515;
+
+    border: 1px solid #3d3214;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    border-color: #D4AF37;
+
+    transform: translateY(-6px);
+}
+
+.info-card h3 {
+    color: #D4AF37;
+
+    margin-bottom: 12px;
+}
+
+.info-card p {
+    color: #BDBDBD;
+}
+
+
+/* SYLLABUS */
+
+.syllabus {
+    padding: 100px 8%;
+
+    background: #0B0B0B;
+}
+
+.section-title {
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+
+    margin: 15px 0;
+}
+
+.section-title p {
+    color: #BDBDBD;
+}
+
+.syllabus-grid {
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.syllabus-card {
+    background: #151515;
+
+    border: 1px solid #3d3214;
+
+    border-radius: 15px;
+
+    padding: 25px;
+
+    transition: 0.3s;
+}
+
+.syllabus-card:hover {
+    border-color: #D4AF37;
+}
+
+.syllabus-card h3 {
+    color: #D4AF37;
+
+    margin-bottom: 12px;
+}
+
+.syllabus-card p {
+    color: #BDBDBD;
+
+    line-height: 1.6;
+}
+
+
+/* CTA */
+
+.cta {
+    padding: 90px 8%;
+
+    background: #111111;
+
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: 40px;
+
+    margin-bottom: 15px;
+}
+
+.cta p {
+    color: #BDBDBD;
+
+    margin-bottom: 30px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .syllabus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-hero h1 {
+        font-size: 42px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .course-hero {
+        padding: 70px 5%;
+    }
+
+    .course-hero h1 {
+        font-size: 35px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        KARAN K S
+    </div>
+
+    <a href="index.html" class="back-btn">
+        ← Back
+    </a>
+
+</nav>
+
+
+<!-- COURSE HERO -->
+
+<section class="course-hero">
+
+    <div class="course-content">
+
+        <div class="small-text">
+            ONLINE COURSE
+        </div>
+
+        <h1>
+            Graphic Design Class
+        </h1>
+
+        <p>
+            Learn professional graphic design from the basics
+            to practical creative projects. Develop your skills
+            in typography, color, layout and visual communication.
+        </p>
+
+        <a
+        href="https://wa.me/917339646566?text=Hello%20Karan%2C%20I%20am%20interested%20in%20the%20Graphic%20Design%20Class."
+        target="_blank"
+        class="join-btn">
+
+            Join Class on WhatsApp
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- COURSE INFORMATION -->
+
+<section class="course-info-section">
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <h3>
+                Duration
+            </h3>
+
+            <p>
+                3 Months
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>
+                Level
+            </h3>
+
+            <p>
+                Beginner
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3>
+                Training
+            </h3>
+
+            <p>
+                Practical Training
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SYLLABUS -->
+
+<section class="syllabus">
+
+    <div class="section-title">
+
+        <div class="small-text">
+            COURSE SYLLABUS
+        </div>
+
+        <h2>
+            What You Will Learn
+        </h2>
+
+        <p>
+            Learn the important fundamentals of graphic design.
+        </p>
+
+    </div>
+
+
+    <div class="syllabus-grid">
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                01. Design Fundamentals
+            </h3>
+
+            <p>
+                Introduction to graphic design, visual
+                communication and basic design principles.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                02. Color Theory
+            </h3>
+
+            <p>
+                Learn colors, color combinations,
+                contrast and professional color usage.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                03. Typography
+            </h3>
+
+            <p>
+                Learn fonts, font pairing, hierarchy,
+                spacing and professional typography.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                04. Layout & Composition
+            </h3>
+
+            <p>
+                Learn grids, alignment, balance,
+                spacing and creative compositions.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                05. Poster Design
+            </h3>
+
+            <p>
+                Create professional posters and
+                promotional designs through practical projects.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                06. Social Media Design
+            </h3>
+
+            <p>
+                Learn how to create engaging designs
+                for social media platforms.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                07. Branding Basics
+            </h3>
+
+            <p>
+                Introduction to logos, brand colors,
+                visual identity and branding concepts.
+            </p>
+
+        </div>
+
+
+        <div class="syllabus-card">
+
+            <h3>
+                08. Practical Projects
+            </h3>
+
+            <p>
+                Work on practical design projects
+                and build your creative portfolio.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>
+        Ready to Start Learning?
+    </h2>
+
+    <p>
+        Join the Graphic Design Class and start
+        developing your creative skills.
+    </p>
+
+    <a
+    href="https://wa.me/917339646566?text=Hello%20Karan%2C%20I%20want%20to%20join%20the%20Graphic%20Design%20Class."
+    target="_blank"
+    class="join-btn">
+
+        Join Class
+
+    </a>
+
+</section>
+
+
+</body>
+
+</html><!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>graphic-design.html</title>
+</head>
+
+<body>
+</body>
+</html>
