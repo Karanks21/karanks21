@@ -7,6 +7,8 @@
 
 <title>Graphic Design Class | Karan K S</title>
 
+<script>document.documentElement.classList.add('js');</script>
+
 <style>
 
 * {
@@ -318,6 +320,302 @@ body {
 
 }
 
+
+
+/* =====================================================
+   MOTION LAYER
+   Only transform / opacity / colour / shadow are animated,
+   so everything stays on the GPU and layout never shifts.
+   ===================================================== */
+
+:root {
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Page load ---------- */
+
+body {
+    overflow-x: clip;                       /* safety net: never scroll sideways */
+    animation: page-in 0.8s ease-out backwards;
+}
+
+@keyframes page-in {
+    from { opacity: 0; }
+}
+
+@keyframes nav-in {
+    from { opacity: 0; transform: translateY(-14px); }
+}
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(28px); }
+}
+
+/* Hero: label -> heading -> paragraph -> button */
+.course-content > * {
+    animation: rise 0.9s var(--ease-out) backwards;
+}
+.course-content > :nth-child(1) { animation-delay: 0.20s; }
+.course-content > :nth-child(2) { animation-delay: 0.35s; }
+.course-content > :nth-child(3) { animation-delay: 0.50s; }
+.course-content > :nth-child(4) { animation-delay: 0.65s; }
+
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+    animation: nav-in 0.7s var(--ease-out) backwards;
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+    transition:
+        background-color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        backdrop-filter 0.35s ease,
+        -webkit-backdrop-filter 0.35s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(11, 11, 11, 0.82);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom-color: rgba(212, 175, 55, 0.35);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.logo {
+    transform-origin: left center;
+    transition: transform 0.35s var(--ease-out), text-shadow 0.35s ease;
+}
+
+.navbar.scrolled .logo {
+    transform: scale(0.92);
+}
+
+
+/* ---------- Buttons ---------- */
+
+.back-btn,
+.join-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.back-btn {
+    transition:
+        color 0.3s ease,
+        transform 0.35s var(--ease-out),
+        box-shadow 0.35s ease;
+}
+
+/* gold fill that sweeps in from the left */
+.back-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #D4AF37;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.4s var(--ease-out);
+}
+
+.back-btn .arrow {
+    display: inline-block;
+    transition: transform 0.35s var(--ease-out);
+}
+
+.join-btn {
+    transition:
+        transform 0.35s var(--ease-out),
+        background-color 0.3s ease,
+        box-shadow 0.35s ease;
+}
+
+/* light streak that glides across on hover */
+.join-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(115deg, transparent 25%, rgba(212, 175, 55, 0.5) 50%, transparent 75%);
+    transform: translateX(-100%);
+}
+
+/* click ripple (element is added by JS and removed afterwards) */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.6;
+    transform: scale(0);
+    animation: ripple 0.6s ease-out forwards;
+}
+.join-btn .ripple { background: rgba(0, 0, 0, 0.18); }
+.back-btn .ripple { background: rgba(212, 175, 55, 0.4); }
+
+@keyframes ripple {
+    to { transform: scale(1); opacity: 0; }
+}
+
+.join-btn:focus-visible,
+.back-btn:focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 4px;
+}
+
+
+/* ---------- Cards ---------- */
+
+.info-card,
+.syllabus-card {
+    transition:
+        transform 0.4s var(--ease-out),
+        border-color 0.3s ease,
+        box-shadow 0.4s ease;
+}
+
+.syllabus-card h3 {
+    transition: transform 0.4s var(--ease-out);
+}
+
+
+/* ---------- Hover effects (pointer devices only, so touch never "sticks") ---------- */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .logo:hover {
+        text-shadow: 0 0 18px rgba(212, 175, 55, 0.45);
+    }
+
+    .back-btn:hover {
+        background: transparent;            /* the ::before sweep provides the gold fill */
+        color: #000000;
+        transform: translateX(-2px);
+        box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+    }
+    .back-btn:hover::before { transform: scaleX(1); }
+    .back-btn:hover .arrow  { transform: translateX(-4px); }
+
+    .join-btn:hover {
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 12px 30px rgba(212, 175, 55, 0.35);
+    }
+    .join-btn:hover::before {
+        transform: translateX(100%);
+        transition: transform 0.8s var(--ease-out);
+    }
+
+    .info-card:hover {
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.55), 0 0 24px rgba(212, 175, 55, 0.10);
+    }
+
+    .syllabus-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.55), 0 0 24px rgba(212, 175, 55, 0.10);
+    }
+    .syllabus-card:hover h3 {
+        transform: translateX(4px);
+    }
+}
+
+/* press feedback (works for mouse, touch and keyboard) */
+.back-btn:active {
+    transform: scale(0.95);
+}
+.join-btn:active {
+    transform: translateY(-1px) scale(0.97);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+
+/* ---------- Scroll reveal ----------
+   Hidden only when JS is running (.js). The script adds .is-visible
+   as each element enters the viewport. Keep this list in sync with
+   REVEAL_SELECTOR in the script at the bottom of the page.        */
+
+.js :is(.section-title, .info-card, .syllabus-card, .cta h2, .cta p, .cta .join-btn):not(.is-visible) {
+    opacity: 0;
+}
+
+.is-visible {
+    animation: reveal-up 0.9s var(--ease-out) backwards;
+    animation-delay: var(--d, 0ms);
+}
+
+/* Items already on screen at page load wait for the hero sequence to finish */
+.is-visible.after-hero {
+    animation-delay: calc(var(--d, 0ms) + 0.75s);
+}
+
+@keyframes reveal-up {
+    from { opacity: 0; transform: translateY(32px); }
+}
+@keyframes reveal-left {
+    from { opacity: 0; transform: translateX(-36px); }
+}
+@keyframes reveal-right {
+    from { opacity: 0; transform: translateX(36px); }
+}
+@keyframes reveal-scale {
+    from { opacity: 0; transform: translateY(12px) scale(0.9); }
+}
+
+/* Course info: rise up in sequence */
+.info-card:nth-child(2) { --d: 120ms; }
+.info-card:nth-child(3) { --d: 240ms; }
+
+/* Syllabus: left column glides in from the left, right column from the right */
+.syllabus-card:nth-child(odd).is-visible  { animation-name: reveal-left; }
+.syllabus-card:nth-child(even).is-visible { animation-name: reveal-right; }
+.syllabus-card:nth-child(even)            { --d: 100ms; }
+
+/* Call to action: heading -> text -> button (button scales in) */
+.cta p         { --d: 120ms; }
+.cta .join-btn { --d: 240ms; }
+.cta .join-btn.is-visible { animation-name: reveal-scale; }
+
+
+/* ---------- Mobile: single column, so use vertical motion only ---------- */
+
+@media (max-width: 800px) {
+    .syllabus-card:nth-child(odd).is-visible,
+    .syllabus-card:nth-child(even).is-visible {
+        animation-name: reveal-up;
+    }
+    .syllabus-card:nth-child(even),
+    .info-card:nth-child(2),
+    .info-card:nth-child(3) {
+        --d: 0ms;
+    }
+}
+
+
+/* ---------- Reduced motion: no movement, content simply appears ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .js :is(.section-title, .info-card, .syllabus-card, .cta h2, .cta p, .cta .join-btn):not(.is-visible) {
+        opacity: 1;
+    }
+}
+
 </style>
 
 </head>
@@ -333,8 +631,8 @@ body {
         KARAN K S
     </div>
 
-    <a href="index.html" class="back-btn">
-        ← Back
+    <a href="file:///C|/Users/Anjali/Downloads/index.html" class="back-btn">
+        <span class="arrow">←</span> Back
     </a>
 
 </nav>
@@ -589,15 +887,97 @@ body {
 </section>
 
 
+
+<script>
+(function () {
+    'use strict';
+
+    var reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- 1. Scroll reveal (IntersectionObserver) ---- */
+    /* Keep in sync with the ".js :is(...)" rule in the CSS. */
+    var REVEAL_SELECTOR =
+        '.section-title, .info-card, .syllabus-card, .cta h2, .cta p, .cta .join-btn';
+
+    var items = Array.prototype.slice.call(document.querySelectorAll(REVEAL_SELECTOR));
+
+    function show(el) {
+        el.classList.add('is-visible');
+    }
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        items.forEach(show);
+    } else {
+        var firstBatch = true;                                   /* the initial on-load pass */
+        var loadedAtTop = (window.pageYOffset || 0) < 50;
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    if (firstBatch && loadedAtTop) {
+                        entry.target.classList.add('after-hero');
+                    }
+                    show(entry.target);
+                    observer.unobserve(entry.target);   /* animate once */
+                }
+            });
+            firstBatch = false;
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+        items.forEach(function (el) { observer.observe(el); });
+    }
+
+    /* ---- 2. Navbar state on scroll ---- */
+    var nav = document.querySelector('.navbar');
+
+    if (nav) {
+        var ticking = false;
+
+        var updateNav = function () {
+            nav.classList.toggle('scrolled', (window.pageYOffset || 0) > 24);
+            ticking = false;
+        };
+
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                ticking = true;
+                window.requestAnimationFrame(updateNav);
+            }
+        }, { passive: true });
+
+        updateNav();
+    }
+
+    /* ---- 3. Click ripple (visual only - never touches the link) ---- */
+    if (!reduceMotion) {
+        document.addEventListener('pointerdown', function (e) {
+            if (e.button > 0 || !e.target.closest) { return; }
+
+            var btn = e.target.closest('.join-btn, .back-btn');
+            if (!btn) { return; }
+
+            var rect = btn.getBoundingClientRect();
+            var size = Math.max(rect.width, rect.height) * 2;
+            var dot = document.createElement('span');
+
+            dot.className = 'ripple';
+            dot.setAttribute('aria-hidden', 'true');
+            dot.style.width = dot.style.height = size + 'px';
+            dot.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            dot.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            btn.appendChild(dot);
+
+            var remove = function () {
+                if (dot.parentNode) { dot.parentNode.removeChild(dot); }
+            };
+            dot.addEventListener('animationend', remove);
+            window.setTimeout(remove, 900);   /* safety net */
+        }, { passive: true });
+    }
+})();
+</script>
+
 </body>
 
-</html><!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>graphic-design.html</title>
-</head>
-
-<body>
-</body>
 </html>
