@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>URBAN MUG | Brand Identity</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#0b0b0b;
+    color:#fff;
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+nav{
+    background:#111;
+    border-bottom:1px solid #2a2a2a;
+    padding:20px 0;
+}
+
+.nav-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:#d4af37;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:#fff;
+    text-decoration:none;
+    border:1px solid #d4af37;
+    padding:10px 20px;
+    border-radius:25px;
+    transition:.3s;
+}
+
+.nav-link:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+/* HERO */
+
+.hero{
+    min-height:520px;
+    display:flex;
+    align-items:center;
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.65)
+        ),
+        url("image/nova1.JPG") center center / cover no-repeat;
+}
+
+.hero-content{
+    width:100%;
+}
+
+.hero small{
+    color:#d4af37;
+    letter-spacing:4px;
+    font-weight:bold;
+}
+
+.hero h1{
+    font-size:70px;
+    margin:15px 0;
+    color:#d4af37;
+    letter-spacing:5px;
+}
+
+.hero h2{
+    font-size:25px;
+    font-weight:normal;
+}
+
+.hero p{
+    max-width:650px;
+    margin:20px auto;
+    color:#ccc;
+}
+
+/* SECTION */
+
+section{
+    padding:80px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:38px;
+    color:#d4af37;
+}
+
+.section-title p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-image img{
+    width:100%;
+    height:auto;
+    border-radius:15px;
+    display:block;
+}
+
+.about-text h2{
+    color:#d4af37;
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    color:#ccc;
+    margin-bottom:15px;
+}
+
+/* DETAILS */
+
+.details{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.detail-box{
+    background:#151515;
+    padding:30px;
+    border:1px solid #292929;
+    border-radius:15px;
+    text-align:center;
+}
+
+.detail-box h3{
+    color:#d4af37;
+    margin-bottom:10px;
+}
+
+.detail-box p{
+    color:#bbb;
+}
+
+/* PROCESS */
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.process-box{
+    text-align:center;
+    padding:25px;
+    background:#151515;
+    border-radius:15px;
+    border:1px solid #292929;
+}
+
+.number{
+    width:45px;
+    height:45px;
+    line-height:45px;
+    border-radius:50%;
+    background:#d4af37;
+    color:#000;
+    font-weight:bold;
+    margin:0 auto 15px;
+}
+
+.process-box h3{
+    color:#fff;
+}
+
+/* GALLERY */
+
+.gallery{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+
+.gallery-item{
+    width:100%;
+    overflow:hidden;
+    border-radius:16px;
+    background:#111;
+    border:1px solid #292929;
+}
+
+.gallery-item img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+
+/* BUTTON */
+
+.button-area{
+    text-align:center;
+    padding:70px 0;
+}
+
+.back-btn{
+    display:inline-block;
+    text-decoration:none;
+    background:#d4af37;
+    color:#000;
+    padding:15px 30px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid #292929;
+    color:#777;
+}
+
+footer span{
+    color:#d4af37;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .details{
+        grid-template-columns:1fr;
+    }
+
+    .process{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+}
+
+@media(max-width:600px){
+
+    .process{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero h2{
+        font-size:20px;
+    }
+
+    .nav-content{
+        flex-direction:column;
+        gap:15px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="container nav-content">
+
+        <div class="logo">
+            KARAN K S
+        </div>
+
+        <a href="portfolio.html" class="nav-link">
+            ← Back to Portfolio
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="container hero-content">
+
+        <small>BRAND IDENTITY PROJECT</small>
+
+        <h1>URBAN</h1>
+
+        <h2>MUG</h2>
+
+        <p>
+            A modern coffee brand identity designed with a premium,
+            bold and memorable visual language.
+        </p>
+
+    </div>
+
+</header>
+
+
+<!-- PROJECT OVERVIEW -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Project Overview</h2>
+
+            <p>
+                Building a strong and modern coffee brand identity.
+            </p>
+
+        </div>
+
+
+        <div class="about">
+
+            <div class="about-image">
+
+                <img
+                    src="image/nova0.JPG"
+                    alt="URBAN MUG "
+                >
+
+            </div>
+
+
+            <div class="about-text">
+
+                <h2>About URBAN MUG</h2>
+
+                <p>
+                    URBAN MUG is a modern coffee brand concept created
+                    to deliver a premium and energetic visual identity.
+                </p>
+
+                <p>
+                    The design focuses on strong typography, warm coffee
+                    aesthetics and a clean visual system that can work
+                    across packaging, social media and promotional materials.
+                </p>
+
+                <p>
+                    The complete identity was designed to create a
+                    consistent and recognizable coffee brand experience.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BRAND DETAILS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Brand Details</h2>
+
+        </div>
+
+
+        <div class="details">
+
+            <div class="detail-box">
+
+                <h3>Category</h3>
+
+                <p>
+                    Coffee & Beverage Brand
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <h3>Style</h3>
+
+                <p>
+                    Modern · Premium · Minimal
+                </p>
+
+            </div>
+
+
+            <div class="detail-box">
+
+                <h3>Tools</h3>
+
+                <p>
+                    Photoshop · Illustrator
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DESIGN PROCESS -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Design Process</h2>
+
+            <p>
+                From concept to final brand presentation.
+            </p>
+
+        </div>
+
+
+        <div class="process">
+
+            <div class="process-box">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    Brand Concept
+                </h3>
+
+            </div>
+
+
+            <div class="process-box">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    Logo Design
+                </h3>
+
+            </div>
+
+
+            <div class="process-box">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    Visual Identity
+                </h3>
+
+            </div>
+
+
+            <div class="process-box">
+
+                <div class="number">
+                    04
+                </div>
+
+                <h3>
+                    Packaging & Mockups
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>URBAN MUG GALLERY</h2>
+
+            <p>
+                Brand identity and promotional design exploration.
+            </p>
+
+        </div>	
+
+
+        <div class="gallery">
+ 
+		
+<div class="gallery-item">
+                <img src="image/nova1.JPG"
+                     alt="URBAN MUG Design 01">
+            </div>
+          
+            <div class="gallery-item">
+                <img src="image/nova2.JPG"
+                     alt="URBAN MUG Design 02">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova3.JPG"
+                     alt="URBAN MUG Design 03">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova4.JPG"
+                     alt="URBAN MUG Design 04">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova5.JPG"
+                     alt="URBAN MUG Design 05">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova6.JPG"
+                     alt="URBAN MUG Design 06">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova7.JPG"
+                     alt="URBAN MUG Design 07">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova8.JPG"
+                     alt="URBAN MUG Design 08">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova9.JPG"
+                     alt="URBAN MUG Design 09">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova10.JPG"
+                     alt="URBAN MUG Design 10">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova11.JPG"
+                     alt="URBAN MUG Design 11">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova12.JPG"
+                     alt="URBAN MUG Design 12">
+            </div>
+
+
+            <div class="gallery-item">
+                <img src="image/nova13.JPG"
+                     alt="URBAN MUG Design 13">
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BACK BUTTON -->
+
+<div class="button-area">
+
+    <a href="portfolio.html" class="back-btn">
+        ← Back to Portfolio
+    </a>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 <span>Karan K S</span> · URBAN MUG Brand Identity
+
+</footer>
+
+
+</body>
+</html>
