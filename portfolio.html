@@ -499,6 +499,334 @@ footer {
 
 }
 
+
+
+/* =========================
+   MOTION — page load, scroll, hover
+========================= */
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    animation: pageFadeIn 0.7s ease-out both;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.navbar {
+    animation: fadeDown 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transition-property: background-color, box-shadow, border-color, backdrop-filter;
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
+}
+
+.navbar.is-scrolled {
+    background: rgba(11, 11, 11, 0.88);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.38);
+    border-bottom-color: rgba(212, 175, 55, 0.42);
+}
+
+.logo {
+    display: inline-block;
+    animation: fadeIn 0.55s ease-out 0.08s both;
+    transition-property: letter-spacing, color, transform;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.logo:hover {
+    letter-spacing: 3px;
+}
+
+.nav-links a {
+    position: relative;
+    display: inline-block;
+    transition-property: color, transform;
+    transition-duration: 0.28s;
+    transition-timing-function: ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 1px;
+    background: #D4AF37;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition-property: transform;
+    transition-duration: 0.28s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-links a:hover {
+    color: #D4AF37;
+    transform: translateY(-1px);
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.nav-links li {
+    opacity: 0;
+    animation: fadeIn 0.45s ease-out forwards;
+}
+
+.nav-links li:nth-child(1) { animation-delay: 0.16s; }
+.nav-links li:nth-child(2) { animation-delay: 0.22s; }
+.nav-links li:nth-child(3) { animation-delay: 0.28s; }
+.nav-links li:nth-child(4) { animation-delay: 0.34s; }
+.nav-links li:nth-child(5) { animation-delay: 0.40s; }
+
+.hero {
+    animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.hero-content > * {
+    opacity: 0;
+    animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-content > .small-text { animation-delay: 0.18s; }
+.hero-content > h1 { animation-delay: 0.32s; }
+.hero-content > p { animation-delay: 0.48s; }
+
+.project-card {
+    transition-property: transform, border-color, box-shadow;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: #D4AF37;
+    box-shadow: 0 18px 44px rgba(212, 175, 55, 0.16);
+}
+
+.project-image span {
+    display: inline-block;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-image span {
+    transform: scale(1.08);
+}
+
+.project-image img {
+    transition-property: transform;
+    transition-duration: 0.55s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.view-btn {
+    transition-property: transform, background-color, color, box-shadow, border-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.view-btn:hover {
+    background: #D4AF37;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(212, 175, 55, 0.28);
+}
+
+.view-btn:active {
+    transform: scale(0.96);
+    box-shadow: none;
+}
+
+.contact-btn {
+    transition-property: transform, background-color, color, box-shadow;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+}
+
+.contact-btn:hover {
+    background: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(255, 255, 255, 0.12);
+}
+
+.contact-btn:active {
+    transform: scale(0.96);
+    box-shadow: none;
+}
+
+.skill {
+    transition-property: transform, border-color, box-shadow, background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skill:hover {
+    border-color: #D4AF37;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(212, 175, 55, 0.12);
+}
+
+.view-btn:focus-visible,
+.contact-btn:focus-visible,
+.nav-links a:focus-visible {
+    outline: 2px solid #D4AF37;
+    outline-offset: 3px;
+}
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-scale {
+    opacity: 0;
+    transition-property: opacity, transform, filter;
+    transition-duration: 0.7s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+}
+
+.reveal,
+.reveal-up {
+    transform: translateY(32px);
+}
+
+.reveal-left {
+    transform: translateX(-28px);
+}
+
+.reveal-right {
+    transform: translateX(28px);
+}
+
+.reveal-scale {
+    transform: translateY(18px) scale(0.98);
+}
+
+.reveal.is-inview,
+.reveal-left.is-inview,
+.reveal-right.is-inview,
+.reveal-up.is-inview,
+.reveal-scale.is-inview {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    will-change: auto;
+}
+
+@media (max-width: 850px) {
+    .reveal-left,
+    .reveal-right {
+        transform: translateY(24px);
+    }
+
+    .navbar.is-scrolled {
+        padding: 20px 8%;
+    }
+}
+
+@media (max-width: 500px) {
+    .navbar.is-scrolled {
+        padding: 18px 5%;
+    }
+}
+
+
+.project-card.is-inview:hover {
+    transform: translateY(-8px);
+}
+
+.skill.is-inview:hover {
+    transform: translateY(-5px);
+}
+
+.contact-btn.is-inview:hover {
+    transform: translateY(-3px);
+}
+
+.contact-btn.is-inview:active,
+.view-btn:active {
+    transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    body,
+    .hero,
+    .hero-content > *,
+    .navbar,
+    .logo,
+    .nav-links li,
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-up,
+    .reveal-scale {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .project-card:hover .project-image img,
+    .project-card:hover .project-image span {
+        transform: none;
+    }
+}
+
 </style>
 
 </head>
@@ -687,7 +1015,7 @@ footer {
                     Figma · UI/UX · Prototyping
                 </div>
 
-                <a href="nova-coffee.html" class="view-btn">
+                <a href="file:///C|/Users/Anjali/Downloads/nova-coffee.html" class="view-btn">
     View Project →
 </a>
 
@@ -733,11 +1061,9 @@ footer {
                     Photoshop · Illustrator · Branding
                 </div>
 
-                <a href="nova-coffee.html" class="view-btn">
+                <a href="file:///C|/Users/Anjali/Downloads/nova-coffee.html" class="view-btn">
     View Project →
 </a>
-
-                </a>
 
             </div>
 
@@ -779,7 +1105,7 @@ footer {
                     Photoshop · Graphic Design · Social Media
                 </div>
 
-                <a href="UrbanWear.html" class="view-btn">
+                <a href="file:///C|/Users/Anjali/Downloads/UrbanWear.html" class="view-btn">
     View Project →
 </a>
 
@@ -973,6 +1299,104 @@ footer {
 
 </footer>
 
+
+
+<script>
+(function () {
+    "use strict";
+
+    function ready(fn) {
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", fn);
+        } else {
+            fn();
+        }
+    }
+
+    ready(function () {
+        var nav = document.querySelector(".navbar");
+        var reduce = false;
+
+        try {
+            reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        } catch (err) {
+            reduce = false;
+        }
+
+        function onScroll() {
+            if (!nav) return;
+            if (window.scrollY > 16) {
+                nav.classList.add("is-scrolled");
+            } else {
+                nav.classList.remove("is-scrolled");
+            }
+        }
+
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+
+        var targets = [];
+
+        function mark(selector, className, staggerMs) {
+            var nodes = document.querySelectorAll(selector);
+            for (var i = 0; i < nodes.length; i += 1) {
+                var el = nodes[i];
+                el.classList.add(className);
+                if (staggerMs) {
+                    el.style.transitionDelay = (i * staggerMs) + "ms";
+                }
+                targets.push(el);
+            }
+        }
+
+        mark(".portfolio > .section-title", "reveal-up");
+        mark(".about-content", "reveal-up");
+        mark(".skills > .section-title", "reveal-up");
+        mark(".contact > .small-text, .contact > h2, .contact > p", "reveal-up", 90);
+        mark(".contact-btn", "reveal-scale", 80);
+        mark("footer", "reveal-up");
+        mark(".skill", "reveal-scale", 55);
+
+        var cards = document.querySelectorAll(".project-card");
+        for (var c = 0; c < cards.length; c += 1) {
+            var card = cards[c];
+            var dir = (c % 2 === 0) ? "reveal-left" : "reveal-right";
+            card.classList.add(dir);
+            card.style.transitionDelay = (c * 70) + "ms";
+            targets.push(card);
+        }
+
+        function showAll() {
+            for (var i = 0; i < targets.length; i += 1) {
+                targets[i].classList.add("is-inview");
+                targets[i].style.transitionDelay = "0ms";
+            }
+        }
+
+        if (reduce || !("IntersectionObserver" in window)) {
+            showAll();
+            return;
+        }
+
+        var io = new IntersectionObserver(function (entries) {
+            for (var i = 0; i < entries.length; i += 1) {
+                var entry = entries[i];
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-inview");
+                    io.unobserve(entry.target);
+                }
+            }
+        }, {
+            threshold: 0.12,
+            rootMargin: "0px 0px -8% 0px"
+        });
+
+        for (var t = 0; t < targets.length; t += 1) {
+            io.observe(targets[t]);
+        }
+    });
+})();
+</script>
 
 </body>
 
